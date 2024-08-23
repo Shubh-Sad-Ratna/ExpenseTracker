@@ -2,6 +2,7 @@ import ExpenseItem from './components/ExpenseItem';
 import './App.css';
 
 function App() {
+
   const expenses=[
     {id:1,date:new Date(2023,7,5), location:'Bengaluru', title:'Insurance', price:'220'},
     {id:2,date:new Date(2024,8,5), location:'Nagpur', title:'Book', price:'10'},
@@ -22,5 +23,6 @@ function App() {
     </div>
   );
 }
+
 
 export default App;
