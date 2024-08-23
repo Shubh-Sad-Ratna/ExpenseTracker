@@ -12,7 +12,7 @@ function App() {
   return (
     <div>
       <h1>Lets Get Started</h1>
-      <div class="box">
+      <div>
         <Expenses expenses={expenses}/>
       </div>
     </div>
