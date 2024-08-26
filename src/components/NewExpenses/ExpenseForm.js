@@ -15,7 +15,6 @@ const ExpenseForm = () => {
                 enteredTitle: event.target.value
             };
         });
-        console.log(userInput.enteredTitle);
     };
 
     const amountChangeHandler = (event) => {
@@ -25,7 +24,6 @@ const ExpenseForm = () => {
                 enteredAmount: event.target.value
             };
         });
-        console.log(userInput.enteredAmount);
     };
 
     const dateChangeHandler = (event) => {
@@ -35,16 +33,31 @@ const ExpenseForm = () => {
                 enteredDate: event.target.value
             };
         });
-        console.log(userInput.enteredDate);
     };
 
+    const submitButtonHandler=(event)=>{
+        event.preventDefault();
+        const data={
+            title:userInput.enteredTitle,
+            amount:userInput.enteredAmount,
+            date:new Date(userInput.enteredDate)
+        }
+        console.log(data);
+        setUserInput({
+            enteredTitle: "",
+            enteredAmount: "",
+            enteredDate: ""
+        })
+    }
+
     return (
-        <form>
+        <form onSubmit={submitButtonHandler}>
             <div className="new-expense__controls">
                 <div className="new-expense__control">
                     <label htmlFor="title">Title</label>
                     <input
                         type="text"
+                        value={userInput.enteredTitle}
                         onChange={titleChangeHandler}
                         id="title"
                     />
@@ -53,6 +66,7 @@ const ExpenseForm = () => {
                     <label htmlFor="amount">Amount</label>
                     <input
                         type="number"
+                        value={userInput.enteredAmount}
                         id="amount"
                         onChange={amountChangeHandler}
                     />
@@ -64,6 +78,7 @@ const ExpenseForm = () => {
                         min="2023-01-01"
                         max="2024-12-31"
                         id="date"
+                        value={userInput.enteredDate}
                         onChange={dateChangeHandler}
                     />
                 </div>
