@@ -9,10 +9,13 @@ function App() {
     {id:3,date:new Date(2025,6,5), title:'Pen', price:'5'},
     {id:4,date:new Date(2026,2,5),title:'Laptop', price:'4999'},
   ]
+  const submitDataHandler=(data)=>{
+    console.log(data);
+  }
   return (
     <div>
       <h1>Lets Get Started</h1>
-      <NewExpenses/>
+      <NewExpenses onSubmit={submitDataHandler}/>
       <Expenses expenses={expenses}/>
     </div>
   );
